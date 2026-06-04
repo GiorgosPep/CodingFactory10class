@@ -1,4 +1,4 @@
-package gr.aueb.cf.ch16;
+package gr.aueb.cf.ch16.builder_pattern;
 
 public class Book {
     private final long id;
@@ -15,7 +15,7 @@ public class Book {
         private String title = "";
         private String author = "";
 
-        private Builder(long id, String isbn){
+        Builder(long id, String isbn){
             this.id = id;
             this.isbn = isbn;
         }
