@@ -7,53 +7,55 @@ public class Book {
     private final String isbn;
 
     public static class Builder {
-        //Required fields
+
+        // Required fields
         private final long id;
         private final String isbn;
 
-        //Optional fields
+        // Optional fields
         private String title = "";
         private String author = "";
 
-        Builder(long id, String isbn){
+        public Builder(long id, String isbn) {
             this.id = id;
             this.isbn = isbn;
         }
 
-        public Builder title(String title){
+        public Builder title(String title) {
             this.title = title;
             return this;
         }
 
-        public Builder author(String author){
+        public Builder author(String author) {
             this.author = author;
             return this;
         }
+
         public Book build() {
             return new Book(this);
         }
-
     }
-    private Book(Builder builder){
-        this.id = builder.id;
-        this.title = builder.title;
+
+    private Book(Builder builder) {
+        this.id     = builder.id;
+        this.isbn   = builder.isbn;
+        this.title  = builder.title;
         this.author = builder.author;
-        this.isbn = builder.isbn;
     }
 
     public long getId() {
         return id;
     }
 
-    public String getIsbn() {
-        return isbn;
+    public String getTitle() {
+        return title;
     }
 
     public String getAuthor() {
         return author;
     }
 
-    public String getTitle() {
-        return title;
+    public String getIsbn() {
+        return isbn;
     }
 }

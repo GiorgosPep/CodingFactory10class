@@ -1,4 +1,3 @@
-
 package gr.aueb.cf.ch2;
 
 /**
@@ -47,8 +46,8 @@ public class ExpressionsApp {
         costPerPerson = finalBill / bestFriends;
         remainder = finalBill % bestFriends;
 
-        System.out.printf("Κομμάτια: %d, Ανά άτομο: %d, Επιπλέον: %d, Alice: %d, Wallet: %d, Άτομα: %d%n",
-                totalSlices, slicesPerPerson, leftoverSlices, aliceSlices, wallet, bestFriends);
+         System.out.printf("Κομμάτια: %d, Ανά άτομο: %d, Επιπλέον: %d, Alice: %d, Wallet: %d, Άτομα: %d%n",
+                 totalSlices, slicesPerPerson, leftoverSlices, aliceSlices, wallet, bestFriends);
 
         System.out.printf("Λογαριασμός: %,d, Με έκπτωση: %,d, Ανά άτομο: %,d, Επιπλέον: %d%n",
                 totalBill, finalBill, costPerPerson, remainder);

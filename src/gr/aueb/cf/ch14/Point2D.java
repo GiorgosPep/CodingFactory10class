@@ -1,6 +1,6 @@
 package gr.aueb.cf.ch14;
 
-public class Point2D extends Point{
+public class Point2D extends Point {
     private double y;
 
     public Point2D() {
@@ -24,13 +24,13 @@ public class Point2D extends Point{
     @Override
     public void movePlusOne() {
         super.movePlusOne();
-        y+= 1;
+        y += 1;
     }
 
     @Override
     protected void movePlus10() {
         super.movePlus10();
-        y+= 10;
+        y += 10;
     }
 
     @Override

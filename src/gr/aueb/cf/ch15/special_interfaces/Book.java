@@ -1,20 +1,20 @@
 package gr.aueb.cf.ch15.special_interfaces;
 
-public class Book implements IProduct{
-
+public class Book implements IProduct {
     private int id;
     private String title;
     private String author;
     private String isbn;
 
     public Book() {
+
     }
 
-    public Book(String isbn, String author, String title, int id) {
-        this.isbn = isbn;
-        this.author = author;
-        this.title = title;
+    public Book(int id, String title, String author, String isbn) {
         this.id = id;
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
     }
 
     public int getId() {

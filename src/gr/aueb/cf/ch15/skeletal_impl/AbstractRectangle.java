@@ -1,8 +1,9 @@
 package gr.aueb.cf.ch15.skeletal_impl;
 
-public abstract class AbstractRectangle implements IRectangle{
+public abstract class AbstractRectangle implements IRectangle {
     private double width;
     private double height;
+
     public AbstractRectangle() {
 
     }
@@ -30,16 +31,16 @@ public abstract class AbstractRectangle implements IRectangle{
 
     @Override
     public double getArea() {
-        return width*height;
+        return width * height;
     }
 
     @Override
     public double getPerimeter() {
-        return 2*(width+height);
+        return 2 * (width + height);
     }
 
     @Override
-    public boolean IsSquare() {
-        return width==height;
+    public boolean isSquare() {
+        return width == height;
     }
 }

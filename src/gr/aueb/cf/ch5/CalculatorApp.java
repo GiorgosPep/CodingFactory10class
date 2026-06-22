@@ -4,84 +4,101 @@ import java.util.Scanner;
 
 /**
  * Απλός υπολογιστής τσέπης που εμφανίζει μενού με
- * πρόσθεση, αφαίρεση, πολλαπλασιασμό, διαίρεση και mod, ο
- * χρήστης επιλέγει στη συνέχεια δίνει τις τιμές εισόδου
+ * πρόσθεση, αφαίρεση, πολ/σμό, διαίρεση και mod, ο
+ * χρήστης επιλέγει, στη συνέχεια δίνει τις τιμές εισόδου,
  * και λαμβάνει το αποτέλεσμα. Αυτό επαναλαμβάνεται μέχρι ο
- * χρήστης να επιλέξει έξοδο.
+ * χρήστης να επιλέξει 'έξοδο'.
  */
 public class CalculatorApp {
     static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        int choise =0;
+        int choice = 0;
         int result = 0;
+        int num1 = 0;
+        int num2 = 0;
         final int EXIT = 6;
 
-        while(true){
+
+        while (true) {
 
             printMenu();
-            choise = getOneInt();
+            choice = getOneInt();
 
-            if(choise == EXIT){
-                System.out.println("Έξοδος");
+            if (choice == EXIT) {
+                System.out.println("Έξοδος...");
                 break;
             }
 
-            if(isChoiseValid(choise)){
-                System.out.println("Μη έγκυρη επιλογή. Παρακαλώ προσπαθήστε ξανά");
+            if (!isChoiceValid(choice)) {
+                System.out.println("Μη έγκυρη επιλογή. Παρακαλώ προσπαθήστε ξανά.");
                 continue;
             }
 
-            result = getResultOnChoise(choise);
+            System.out.println("Δώστε δύο ακέραιους:");
+            num1 = getOneInt();
+            num2 = getOneInt();
+
+            result = getResultOnChoice(choice, num1, num2);
+
+            System.out.println("Το αποτέλεσμα είναι: " + result);
         }
     }
-    public static void printMenu(){
-        System.out.println("Παρακαλώ επιλέξτε μία από τις παρακάτω επιλογές");
 
-        System.out.println("1.Πρόσθεση");
-        System.out.println("2.Αφαίρεση");
-        System.out.println("3.Πολλαπλασιασμό");
-        System.out.println("4.Διαίρεση");
-        System.out.println("5.Mod");
-        System.out.println("6.Έξοδος...");
+    public static void printMenu() {
+        System.out.println("Επιλέξτε μία από τις παρακάτω επιλογές:");
+        System.out.println("1. Πρόσθεση");
+        System.out.println("2. Αφαίρεση");
+        System.out.println("3. Πολλαπλασιασμός");
+        System.out.println("4. Διαίρεση");
+        System.out.println("5. Mod");
+        System.out.println("6. Έξοδος");
     }
 
-    public static int getOneInt(){
+    public static int getOneInt() {
         return scanner.nextInt();
-
     }
 
-    public static boolean isChoiseValid(int choise){
-        return (choise>=1 && choise<=5); //το 6 έχει πιαστεί από τον έλεγχο πάνω από την κλήση
+    public static boolean isChoiceValid(int choice) {
+        return choice >= 1 && choice <= 5;
     }
 
-    public static int getResultOnChoise(int choise) {
-        int num1 = 0;
-        int num2 = 0;
+    public static int getResultOnChoice(int choice, int num1, int num2) {
         int result = 0;
 
-        System.out.println("Δώστε δύο ακεραίους: ");
-        num1 = getOneInt();
-        num2 = getOneInt();
-
-        return switch (choise) {
-            case 1 -> result = add(num1, num2);
-            case 2 -> result = sub(num1, num2);
-            case 3 -> result = mul(num1, num2);
-            case 4 -> result = div(num1, num2);
-            case 5 -> result = mod(num1, num2);
+        return switch (choice) {
+            case 1 -> add(num1, num2);
+            case 2 -> sub(num1, num2);
+            case 3 -> mul(num1, num2);
+            case 4 -> div(num1, num2);
+            case 5 -> mod(num1, num2);
             default -> 0;
         };
     }
-    public static int add(int num1,int num2){
-        return num1+num2;
-    }
-    public static int sub(int num1,int num2){
-        return num1-num2;
-    }
-    public static int mul(int num1,int num2){
-        return num1*num2;
-    }
-    public static int div(int num1, int num2){return num2!=0 ? num1/num2 : 0;}
-    public static int mod(int num1, int num2){return num2!=0 ? num1%num2 : 0;}
 
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    public static int sub(int a, int b) {
+        return a - b;
+    }
+
+    public static int mul(int a, int b) {
+        return a * b;
+    }
+
+    public static int div(int a, int b) {
+        if (b == 0) {
+            return 0; // Επιστρέφει 0 ή μπορεί να χειριστεί διαφορετικά
+        }
+        return a / b;
+    }
+
+    public static int mod(int a, int b) {
+        if (b == 0) {
+            return 0; // Επιστρέφει 0 ή μπορεί να χειριστεί διαφορετικά
+        }
+        return a % b;
+    }
 }

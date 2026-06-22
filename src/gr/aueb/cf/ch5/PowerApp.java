@@ -3,39 +3,42 @@ package gr.aueb.cf.ch5;
 import java.util.Scanner;
 
 /**
- * Υπολογίζει τη δύναμη a^b με μέθοδο
+ * Υπολογίζει τη δύναμη a^b με μέθοδο.
  */
 public class PowerApp {
+
     public static void main(String[] args) {
 
-        //Δήλωση και αρχικοποίηση
+        // Δήλωση και αρχικοποίηση
         Scanner in = new Scanner(System.in);
         int base = 0;
-        int exponent = 0;
+        int power = 0;
+        int result = 0;
 
+        // Input & Data Binding
+        System.out.println("Δώστε τη βάση και τον εκθέτη ");
+        base = in.nextInt();
+        power = in.nextInt();
 
-        //Input & data binding
-        System.out.println("Δώστε δύο ακεραίους, πρώτα τη βάση και μετά τον εκθέτη: ");
-        base= in.nextInt();
-        exponent= in.nextInt();
+        // Calls the service - delegation
+        result = pow(base, power);
 
-        //Calls the service - delegation
-        int result = pow(base,exponent);
+        // Εκτύπωση Αποτελέσματος
+        System.out.println("α^β = " + result);
 
-        //Εκτύπωση αποτελεσμάτων
-        System.out.println("Το αποτέλεσμα είναι: "+result);
     }
 
     /**
-     * Calculates a^b
-     * @param a the base number
-     * @param b the exponent
-     * @return a^b
+     * Calculates a^b.
+     *
+     * @param a     the base number.
+     * @param b     the exponent.
+     * @return      the result of a^b.
      */
-    public static int pow(int a, int b){
+    public static int pow(int a, int b) {
         int result = 1;
-        for(int i = 0; i<b; i++) {
-            result *=a;
+        for (int i = 1; i <= b; i++) {
+            result *= a;    // accumulator
         }
         return result;
     }

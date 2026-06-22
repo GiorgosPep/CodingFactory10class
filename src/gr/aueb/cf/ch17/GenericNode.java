@@ -4,6 +4,7 @@ public class GenericNode<T> {
     private T value;
 
     public GenericNode() {
+
     }
 
     public GenericNode(T value) {

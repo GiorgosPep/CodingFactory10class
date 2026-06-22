@@ -1,15 +1,17 @@
 package gr.aueb.cf.ch15.interfaces;
 
 public class SchoolServiceProvider {
-    private TeacherServiceImpl teacherService;  //tightly coupled
+    private TeacherServiceImpl teacherService;  // tightly coupled
 
-    public SchoolServiceProvider(){
-        teacherService = new TeacherServiceImpl();   //new
+    public SchoolServiceProvider() {
+        teacherService = new TeacherServiceImpl();  // new
     }
-    public void register(){
+
+    public void register() {
         teacherService.register();
     }
-    public void unregister(){
+
+    public void unregister() {
         teacherService.unregister();
     }
 }

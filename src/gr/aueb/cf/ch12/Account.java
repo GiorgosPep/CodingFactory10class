@@ -11,10 +11,10 @@ public class Account {
     private double balance;
 
     public Account() {
-
     }
 
-    public Account(long id, String iban, String firstname, String lastname, String ssn, double balance) {
+    public Account(long id, String iban, String firstname,
+                   String lastname, String ssn, double balance) {
         this.id = id;
         this.iban = iban;
         this.firstname = firstname;
@@ -70,7 +70,8 @@ public class Account {
     public void setBalance(double balance) {
         this.balance = balance;
     }
-// Public API - Contract
+
+    // Public API - Contract
 
     /**
      * Deposit a specific amount of money into the account.
@@ -81,14 +82,16 @@ public class Account {
     public void deposit(double amount) throws Exception {
         try {
             if (amount < 0) {
-                throw new Exception("The amount must not be negative");
+                throw new Exception("The amount must not be negative.");
             }
             balance += amount;
+            // audit trail: who, when, what, initial balance, resulting balance
         } catch (Exception e) {
-            System.err.printf("Negative amount: %f is not allowed. \n%s\n", amount, e.getMessage());
+            System.err.printf("Negative amount=%f is not allowed. \n%s\n", amount, e.getMessage());
             throw e;
         }
     }
+
     /**
      * Withdraw a specific amount of money from the account.
      *
@@ -109,6 +112,7 @@ public class Account {
             throw e;
         }
     }
+
     // Design Pattern - Delegation
     /**
      * Get the account balance.
@@ -118,7 +122,10 @@ public class Account {
         return getBalance();
     }
 
-    private boolean isSsnValid(String ssn){
-        return Objects.equals(this.ssn,ssn);
+    private boolean isSsnValid(String ssn) {
+//        return this.ssn.equals(ssn);          // not null-safe
+        return Objects.equals(this.ssn, ssn);   // null-safe
     }
+
+
 }

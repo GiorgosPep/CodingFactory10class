@@ -4,6 +4,7 @@ public class Point {
     private double x;
 
     public Point() {
+
     }
 
     public Point(double x) {
@@ -22,7 +23,7 @@ public class Point {
         x += 1;
     }
 
-    protected void movePlus10(){
+    protected void movePlus10() {
         x += 10;
     }
 

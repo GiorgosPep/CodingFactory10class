@@ -1,7 +1,8 @@
 package gr.aueb.cf.ch17;
 
 /**
- * Περιέχει ένα {@link Object} άρα οποιοσδήποτε τύπος δεδομένων.
+ * Περιέχει ένα {@link Object} άρα
+ * οποιοσδήποτε τύπος δεδομένων.
  */
 public class FlexibleNode {
     private Object value;

@@ -3,88 +3,89 @@ package gr.aueb.cf.ch6;
 import java.util.Arrays;
 
 /**
- * Οι βασικές πράξεις σε συλλογές στοιχείων είναι:
- * filtering,
- * mapping,
+ * Οι βασικές πράξεις σε συλλογές όπως οι πίνακες είναι:
+ * filtering
+ * mapping
  * reducing
  */
 public class ArraysAsCollections {
+
     public static void main(String[] args) {
 
     }
 
-    public static int[] filterEven(int[] arr){
-        if(arr == null || arr.length == 0 ) return new int[0];
-        int [] arraytoReturn = new int[arr.length];
+    public static int[] filterEven(int[] arr) {
+        if (arr == null || arr.length == 0) return new int[0];
+        int[] arrayToReturn = new int[arr.length];
         int count = 0;
 
-        for ( int element : arr){
-            if(element%2 ==0){
-                arraytoReturn[count ++] = element;
+        for (int element : arr) {
+            if (element % 2 == 0) {
+                arrayToReturn[count++] = element;
             }
         }
-        return Arrays.copyOf(arraytoReturn, count);
+
+        return Arrays.copyOf(arrayToReturn, count);
     }
 
-
-    public static int[] mapToDouble(int[] arr){
-        if(arr == null || arr.length == 0) return new int[0];
+    public static int[] mapToDouble(int[] arr) {
+        if (arr == null || arr.length == 0) return new int[0];
         int[] mapped = new int[arr.length];
 
-        for (int i = 0; i <arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             mapped[i] = arr[i] * 2;
         }
         return mapped;
     }
 
-    public static int sumArr(int[] arr){
+    public static int sum(int[] arr) {
+        if (arr == null) return 0;
         int sum = 0;
 
-        if(arr == null || arr.length == 0) return 0;
-        for (int i =0; i<arr.length;i++){
-            sum += arr[i];
+        for (int element : arr) {
+            sum += element;
         }
         return sum;
     }
 
-    public static double avg(int[] arr){
-        int s = 0;
-
-        s= sumArr(arr);
-        return (double) arr.length !=0 ? s/arr.length : 0;
+    public static double avg(int[] arr) {
+        return  sum(arr) / (double) arr.length;
     }
 
-    public static boolean anyEven(int[] arr){
+    public static boolean isAnyEven(int[] arr) {
+        if (arr == null) return false;
 
-        for(int i = 0; i<arr.length; i++){
-            if(arr[i] % 2 == 0) return true;
+        for (int element : arr) {
+            if (element % 2 == 0) return true;
         }
         return false;
     }
 
-    public static boolean isAllEven(int[] arr){
+    public static boolean isAllEven(int[] arr) {
+        if (arr == null) return false;
 
-        if(arr == null || arr.length == 0) return false;
-
-        for( int element : arr){
-            if (element % 2 != 0) return false;
+        for (int element : arr) {
+            if (element % 2 != 0) return false;     // early exit
         }
         return true;
     }
 
     public static boolean isMoreThanTwoEven(int[] arr) {
-        int countEven = 0;
-//        if(arr == null || arr.length == 0) return false;
+        int count = 0;
 //
-//        for( int i = 0; i < arr.length ; i++){
-//            if(arr[i] % 2 == 0) countEven++;
+//        for (int el : arr) {
+//            if (el % 2 == 0) count++;
 //        }
-//        return countEven > 2 ;
+//
+//        return count > 2;
 
         for (int element : arr) {
-            if (element % 2 == 0) countEven++;
-            if (countEven > 2) return true; //early exit
+            if (element % 2 == 0) count++;
+            if (count > 2) return true;     // early exit
         }
         return false;
     }
+
+
+
 }

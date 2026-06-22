@@ -7,8 +7,13 @@ public class City {
 
     }
 
-    public City(String description){
+    public City(String description) {
         this.description = description;
+    }
+
+    // Copy constructor
+    public City(City city) {
+        this.description = city.description;
     }
 
     public String getDescription() {
@@ -17,10 +22,5 @@ public class City {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    //Copy Constructor
-    public City(City city){
-        this.description = city.description;
     }
 }

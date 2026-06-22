@@ -31,11 +31,15 @@ public class Main {
         doPrint(p4);
         doPrint(p5);
     }
-    public static void doMovePlusOne(Point p){
-        p.movePlusOne();        //late binding
+
+    // Polymorphism
+    public static void doMovePlusOne(Point p) {
+        p.movePlusOne();        // late binding
     }
 
-    public static void doPrint(Point p){
-        System.out.println(p);
+    public static void doPrint(Point p) {
+        System.out.println(p.toString());
     }
+
+
 }

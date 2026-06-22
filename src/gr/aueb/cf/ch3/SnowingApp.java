@@ -1,12 +1,15 @@
 package gr.aueb.cf.ch3;
+
 import java.util.Scanner;
 
 /**
- * Ο χρήστης εισάγει αν βρέχει και τη θερμοκρασία
- * και το πρόγραμμα υπολογίζει αν χιονίζει.
- * Αν βρέχει και η θερμοκρασία είναι κάτω από το 0 χιονίζει.
+ * Ο χρήστης εισάγει αν βρέχει και τη
+ * θερμοκρασία και το πρόγραμμα υπολογίζει
+ * αν χιονίζει. Χιονίζει σημαίνει ότι βρέχει ΚΑΙ η
+ * θερμοκρασία είναι κάτω από το μηδέν.
  */
 public class SnowingApp {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean isRaining = false;
@@ -21,7 +24,6 @@ public class SnowingApp {
 
         isSnowing = isRaining && (temperature < 0);
 
-        System.out.println("Χιονίζει; " + isSnowing);
-
+        System.out.println("Χιονίζει: " + isSnowing);
     }
 }

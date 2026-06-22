@@ -6,13 +6,13 @@ public class SchoolMain {
         ISchoolService studentService = new StudentServiceImpl();
         ISchoolService teacherService = new TeacherServiceImpl();
 
-        GenericSchoolServiceProvider genericSchoolServiceProvider1 = new GenericSchoolServiceProvider(studentService);
-        GenericSchoolServiceProvider genericSchoolServiceProvider2 = new GenericSchoolServiceProvider(teacherService);
+        GenericSchoolServiceProvider studentProvider = new GenericSchoolServiceProvider(studentService);
+        GenericSchoolServiceProvider teacherProvider = new GenericSchoolServiceProvider(teacherService);
 
-        genericSchoolServiceProvider1.register();
-        genericSchoolServiceProvider2.register();
+        studentProvider.register();
+        teacherProvider.register();
 
-        genericSchoolServiceProvider1.unregister();
-        genericSchoolServiceProvider2.unregister();
+        studentProvider.unregister();
+        teacherProvider.unregister();
     }
 }

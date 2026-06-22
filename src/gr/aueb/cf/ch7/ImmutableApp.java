@@ -1,11 +1,11 @@
 package gr.aueb.cf.ch7;
 
 /**
- *  s1 δείχνει σε νέα τιμή στο Heap, ενώ
- *  το 'παλιό string' μένει χωρίς αναφορά
- *  (reference) και γίνεται garbage collected.
+ * s1 δείχνει σε νέα τιμή στο Heap, ενώ
+ * το 'παλιό string' μένει χωρίς αναφορά
+ * (reference) και γίνεται garbage collected.
  *
- *  Επομένως τα strings είναι immutable.
+ * Επομένως, τα strings είναι immutable.
  */
 public class ImmutableApp {
 

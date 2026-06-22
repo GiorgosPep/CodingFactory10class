@@ -1,11 +1,11 @@
 package gr.aueb.cf.ch1;
 
 /**
- * Prints Hello Wold
+ * Prints Hello World
  */
 public class HelloWorld {
+
     public static void main(String[] args) {
-        //psvm (autocomplete)
-        System.out.println("Hello World! ");
+        System.out.println("Hello World");
     }
 }

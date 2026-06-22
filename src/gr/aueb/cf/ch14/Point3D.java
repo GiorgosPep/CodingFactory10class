@@ -3,8 +3,9 @@ package gr.aueb.cf.ch14;
 public class Point3D extends Point2D {
     private double z;
 
-    public Point3D(){
-
+    public Point3D() {
+//        super();
+//        z = 0.0;
     }
 
     public Point3D(double x, double y, double z) {
@@ -23,18 +24,17 @@ public class Point3D extends Point2D {
     @Override
     public void movePlusOne() {
         super.movePlusOne();
-        z+= 1;
+        z += 1;
     }
 
     @Override
     protected void movePlus10() {
         super.movePlus10();
-        z+= 10;
+        z += 10;
     }
 
     @Override
     public String toString() {
         return "(" + getX() + ", " + getY() + ", " + z + ")";
-
     }
 }

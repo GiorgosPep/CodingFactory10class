@@ -5,13 +5,15 @@ public class Student {
     private City city;
 
     public Student() {
+
     }
 
     public Student(String name, City city) {
         this.name = name;
         this.city = new City(city);
     }
-    public Student(Student student){
+
+    public Student(Student student) {
         this.name = student.name;
         this.city = new City(student.city);
     }
